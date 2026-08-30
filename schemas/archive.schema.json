@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/local-social-archive/archive.schema.json",
+  "title": "Local Social Archive interchange format",
+  "type": "object",
+  "required": ["schemaVersion", "collections"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "title": {"type": "string"},
+    "collections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "entries"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "text"],
+              "properties": {
+                "id": {"type": "string"},
+                "timestamp": {"type": ["integer", "string", "null"]},
+                "author": {"type": ["string", "null"]},
+                "isSelf": {"type": "boolean"},
+                "category": {"type": ["string", "null"]},
+                "text": {"type": "string"},
+                "media": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["kind", "path"],
+                    "properties": {
+                      "kind": {"enum": ["image", "video", "audio", "file"]},
+                      "path": {"type": "string"},
+                      "name": {"type": "string"},
+                      "mime": {"type": "string"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

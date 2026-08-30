@@ -1,0 +1,32 @@
+{
+  "contractVersion": 1,
+  "component": "source-provider-placeholder",
+  "implementationIncluded": false,
+  "display": {
+    "sourceName": "Source",
+    "sourceApplicationName": "source application",
+    "conversationName": "Conversation",
+    "conversationPlural": "Conversations",
+    "timelineName": "Timeline",
+    "ownTimelineName": "My Timeline",
+    "timelineMediaName": "Timeline media",
+    "timelineNavigationHint": "Open your own timeline in the source application, view the required items, then return and rescan."
+  },
+  "capabilities": {
+    "snapshot": "unavailable",
+    "keyProvider": "unavailable",
+    "decryptSnapshot": "unavailable",
+    "normalizeChats": "unavailable",
+    "normalizeMoments": "unavailable",
+    "resolveLocalMedia": "unavailable",
+    "hydrateAndResolveLocalMedia": "unavailable"
+  },
+  "requiredErrors": [
+    "component-unavailable",
+    "authorization-required",
+    "unsupported-version",
+    "legal-review-required",
+    "invalid-snapshot",
+    "capability-unavailable"
+  ]
+}

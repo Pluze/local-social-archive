@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-social-archive"
+version = "0.1.0"
+description = "Vendor-neutral portable archive builder and offline viewer"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Local Social Archive contributors"}]
+
+[project.scripts]
+local-social-archive = "local_social_archive.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+local_social_archive = ["viewer.html"]

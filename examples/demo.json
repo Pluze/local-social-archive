@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "title": "Synthetic archive demo",
+  "collections": [
+    {
+      "id": "conversation-demo",
+      "title": "Example conversation",
+      "entries": [
+        {"id": "m1", "timestamp": 1700000000, "author": "Alex", "isSelf": false, "category": "text", "text": "This is synthetic data.", "media": []},
+        {"id": "m2", "timestamp": 1700000060, "author": "Me", "isSelf": true, "category": "text", "text": "The public repository contains no real account data.", "media": []}
+      ]
+    }
+  ]
+}

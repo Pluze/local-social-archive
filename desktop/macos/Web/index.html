@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Local Social Archive</title>
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="rich.css">
+</head>
+<body>
+<div id="app">
+  <aside class="rail">
+    <div class="brand">A</div>
+    <button class="nav active" data-view="chats" title="Conversations">⌁<span>Conversations</span></button>
+    <button class="nav" data-view="moments" title="Timeline">◉<span>Timeline</span></button>
+    <button class="nav" data-view="tasks" title="Sources">⇩<span>Sources</span></button>
+    <div class="spacer"></div>
+    <button class="nav" id="openFolder" title="Open data folder">↗<span>Files</span></button>
+  </aside>
+  <section class="list-pane">
+    <header><h1 id="listTitle">Conversations</h1><p id="listMeta">Reading local archive...</p></header>
+    <div class="search"><span>⌕</span><input id="searchInput" placeholder="Search chats or messages"><button id="globalSearch">Full text</button></div>
+    <div class="tabs"><button class="active" data-filter="all">All</button><button data-filter="private">Direct</button><button data-filter="group">Groups</button></div>
+    <div id="conversationList" class="conversation-list"></div>
+  </section>
+  <main class="content">
+    <header class="topbar"><div><h2 id="contentTitle">Choose a conversation</h2><p id="contentMeta">Archives are read locally</p></div><div class="actions"><button class="ghost" id="selectCurrent">Select</button><button class="primary" id="refreshButton">Refresh</button></div></header>
+    <section id="viewer" class="viewer"><div class="empty"><div class="empty-icon">⌁</div><h3>Your archive stays on this Mac</h3><p>Import a standard archive or install an authorized source component.</p></div></section>
+  </main>
+  <div id="selectionBar" class="selection hidden"><span><b id="selectionCount">0</b> selected</span><button id="clearSelection">Clear</button><button class="primary" id="exportSelected">Export</button></div>
+  <div id="exportDialog" class="modal hidden"><div class="modal-card">
+    <h3 id="exportDialogTitle">Export structured archive</h3>
+    <p>The package includes a browser-ready <code>index.html</code>, a SQLite archive, and optional data copies. It is saved under the app's unified Exports folder.</p>
+    <label>Export level<select id="exportLevel"><option value="data">Structured data only</option><option value="standard" selected>Standard media</option><option value="complete">All local media</option></select></label>
+    <fieldset><legend>Archive formats</legend><label><input type="checkbox" id="optSQLite" checked> SQLite</label><label><input type="checkbox" id="optJSON" checked> JSON / JSONL</label><label id="textOption"><input type="checkbox" id="optText" checked> Readable text</label></fieldset>
+    <fieldset><legend>Media</legend><label><input type="checkbox" class="media-kind" value="image" checked> Images</label><label><input type="checkbox" class="media-kind" value="video" checked> Video</label><label id="voiceOption"><input type="checkbox" class="media-kind" value="voice"> Voice</label><label id="fileOption"><input type="checkbox" class="media-kind" value="file" checked> Files</label></fieldset>
+    <div class="modal-actions"><button class="ghost" id="cancelExport">Cancel</button><button class="primary" id="confirmExport">Export</button></div>
+  </div></div>
+  <div id="toast" class="toast hidden"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
